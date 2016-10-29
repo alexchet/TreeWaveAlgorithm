@@ -32,14 +32,6 @@ public class Node {
 	
 	private boolean sentDiffusionToken = false;
 	
-	//ELECTION Specific
-	private boolean wakeUpSent = false;
-	private int wakeUpReceived = 0;
-	private List<Node> wakeUpTokenBuffer = new ArrayList<Node>();
-	private int rank = 0;
-	private Node victor = this;
-	private String state = "sleep"; //(sleep, leader, lost)
-	
 	/**
 	 * Constructor of class node
 	 * 
@@ -182,85 +174,6 @@ public class Node {
 		return this.sentTokenToSilentNeigh;
 	}
 	
-	/**
-	 * Get the wake up sent state of this node.
-	 * 
-	 * @return True if wake up sent, false if wake up not sent.
-	 */
-	public boolean getWakeUpSent()
-	{
-		return this.wakeUpSent;
-	}
-	
-	/**
-	 * Set the wake up sent state of this node.
-	 * 
-	 * @param wakeUpSent Boolean to represent the current sate of wake up state token.
-	 */
-	public void setWakeUpSent(boolean wakeUpSent)
-	{
-		this.wakeUpSent = wakeUpSent;
-	}
-	
-	/**
-	 * Get the count of wake up tokens received.
-	 * 
-	 * @return The count of wake up tokens.
-	 */
-	public int getWakeUpReceived()
-	{
-		return this.wakeUpReceived;
-	}
-	
-	/**
-	 * Set the count of wake up tokens received.
-	 * 
-	 * @param wakeUpReceived The count of wake up tokens.
-	 */
-	public void setWakeUpReceived(int wakeUpReceived)
-	{
-		this.wakeUpReceived = wakeUpReceived;
-	}
-	
-	/**
-	 * Get the rank of this node.
-	 * 
-	 * @return The rank of the node.
-	 */
-	public int getRank()
-	{
-		return this.rank;
-	}
-	
-	/**
-	 * Set the rank of the node.
-	 * 
-	 * @param rank The rank of the node.
-	 */
-	public void setRank(int rank)
-	{
-		this.rank = rank;
-	}
-	
-	/**
-	 * Get the victor known to this node.
-	 * 
-	 * @return The victor node known to this node.
-	 */
-	public Node getVictor()
-	{
-		return this.victor;
-	}
-	
-	/**
-	 * Set the victor that is known for this node.
-	 * 
-	 * @param victor The victor known for this node.
-	 */
-	public void setVictor(Node victor)
-	{
-		this.victor = victor;
-	}
 	
 	/**
 	 * Add a node to to token buffer of this node.
@@ -270,26 +183,6 @@ public class Node {
 	public void addTokenBuffer(Node node)
 	{
 		this.tokenBuffer.add(node);
-	}
-	
-	/**
-	 * Gets the current list of nodes in the wake up token buffer.
-	 * 
-	 * @return The current list of tokens in the wake up buffer.
-	 */
-	public List<Node> getWakeUpTokenBuffer()
-	{
-		return this.wakeUpTokenBuffer;
-	}
-	
-	/**
-	 * Add a node to to token buffer of this node.
-	 * 
-	 * @param node The node to be added to the token buffer.
-	 */
-	public void addWakeUpTokenBuffer(Node node)
-	{
-		this.wakeUpTokenBuffer.add(node);
 	}
 	
 	/**
@@ -308,23 +201,5 @@ public class Node {
 	public void resetTokenBuffer()
 	{
 		this.tokenBuffer = new ArrayList<Node>();
-	}
-	
-	/**
-	 * Sets the state for this node;
-	 * 
-	 * @param state The state to be set for this node.
-	 */
-	public void setState(String state) {
-		this.state = state;
-	}
-	
-	/**
-	 * Gets the state of this node.
-	 * 
-	 * @return The String result of the state of this node.
-	 */
-	public String getState() {
-		return this.state;
 	}
  }

@@ -101,22 +101,16 @@ public abstract class Helpers {
 	 * 
 	 * @param tokenMatrix The token matrix that needs to be printed.
 	 */
-	public static void printMatrix(int[][] tokenMatrix, String legendSetUp)
+	public static void printMatrix(int[][] tokenMatrix)
 	{
 		System.out.println("");
 		System.out.println("---------- Token Matrix -----------");
 		int sentTokensSize = tokenMatrix.length;
 		int recieveTokensSize = tokenMatrix[0].length;
-		switch (legendSetUp) {
-			case "wave":
-				System.out.println("Legend: 0 = Not a neighbour, 1 = Neighbour, 2 = Received token");
-				break;
-			case "election":
-				System.out.println("Legend: 0 = Not a neighbour, 1 = Neighbour, 2 = Sent wake up token, " +
-					"3 = Received wake up token, 4 = Sent token, 5 = Received token, 6 = Decide");
-				break;
-		}
+
+		System.out.println("Legend: 0 = Not a neighbour, 1 = Neighbour, 2 = Received token");
 		System.out.print("    ");
+		
 		for (int i = 0; i < sentTokensSize; i++) {
 			System.out.print(i + " ");
 		}

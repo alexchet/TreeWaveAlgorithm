@@ -130,7 +130,7 @@ public class Wave {
 		System.out.println("Number of rounds: " + iCount);
 
 		//Print matrix result for confirmation purposes.
-		Helpers.printMatrix(tokenMatrix, "wave");
+		Helpers.printMatrix(tokenMatrix);
 	}
 
 }
